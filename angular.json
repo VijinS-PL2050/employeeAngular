@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NewDemoAngular"
+    }
+  },
+  "defaultProject": "NewDemoAngular",
+  "cli": {
+    "analytics": "823d81f6-8c2f-496d-8016-82dc082a96ea"
+  }
 }

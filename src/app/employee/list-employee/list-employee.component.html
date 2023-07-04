@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="header">
+        <div class="form-control">
+            <input class="form-control" type="text" placeholder="Search text here.." [(ngModel)]="filter">
+        </div>
+    </div>
+</div>
+<a [routerLink]="['../addemployee']" class="btn btn-outline-secondary" style="float: right; margin-bottom: 10px;">ADD
+    EMPLOYEE</a>
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>NAME</th>
+            <th>DESIGNATION</th>
+            <th>DATE OF JOINING</th>
+            <th>DEPARTMENT ID</th>
+            <th>ACTIVE</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employeeService.employees | filter:filter | paginate:{itemsPerPage:6,currentPage:page}">
+            <td>{{emp.id}}</td>
+            <td>{{emp.employeeName}}</td>
+            <td>{{emp.designation}}</td>
+            <td>{{emp.dateofjoining}}</td>
+            <td>{{emp.departmentid}}</td>
+            <td>{{emp.active}}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteEmploye(emp.id)">DELETE</button>&nbsp;
+                <button class="btn btn-info" (click)="updateEmployee(emp.id)"
+                style="margin-left: 10px;">EDIT</button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="footer">
+    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+
+</div>

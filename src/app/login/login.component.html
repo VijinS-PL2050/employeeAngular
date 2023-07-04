@@ -1,0 +1,31 @@
+<div class="container">
+    <h3>LOGIN HERE...</h3>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="loginCredentails()" class="form-control">
+
+    <!--     USERNAME -->
+    <div>
+        <p>
+            <label for="userName" class="form-label">USERNAME :</label>
+            <input type="text" placeholder="Enter UserName.." name="userName" formControlName="userName"
+                class="form-control" minlength="3"
+                [ngClass]="{'is-invalid':formControls.userName.touched && formControls.userName.invalid}">
+        </p>
+
+    </div>
+    <div>
+        <p>
+            <label for="password" class="form-label">PASSWORD :</label>
+            <input type="password" placeholder="Enter password.." name="password" formControlName="password"
+            class="form-control" minlength="3"
+                [ngClass]="{'is-invalid':formControls.password.touched && formControls.password.invalid}">
+        </p>
+    </div>
+    <!--     Button for Login  -->
+    <div>
+        <button type="submit" class="btn btn-primary">LOGIN</button>
+    </div>
+    <div *ngIf="error" style="color: red; text-align: left;">
+        {{error}}
+    </div>
+</form>
